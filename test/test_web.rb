@@ -9,7 +9,7 @@ class WebTest < Test::Unit::TestCase
   
   get '/SampleFont.css' do
     should_respond_with 200
-    should_set_header 'Content-Type', 'text/css'
+    should_set_header 'Content-Type', 'text/css;charset=utf-8'
     should_set_caching
     #should_have_rendered_css 'SampleFont' # TODO!
   end
