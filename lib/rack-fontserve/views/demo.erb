@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>rack-fontserve demo</title>
+<% Font.all.each do |font| %>
+  <link rel="stylesheet" src="/<%= font.name %>.css?nocache=<%= rand(500000000) * rand(5000)/(rand(2000)+3)+5 %>"/>  
+<% end %>
+  <style type="text/css">
+    body { 
+      text-align: center; 
+      font-size: 180%; 
+      background: #ddd;
+      padding-top: 35px;
+      font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    }
+    h1,h2,h3 {
+      text-shadow: white 1px 1px 1px;
+    }
+    
+    <% Font.all.each do |font| %>
+      .<%= font.name %> { font-family: '<%= font.name %>', Helvetica, Arial, sans-serif; }
+    <% end %>
+    
+  </style>
+</head>
+<body>
+  <h1>rack-fontserve</h1>
+  <% Font.all.each do |font| %>
+  <h2 class="<%= font.name %>"><%= font.name %></h2>
+  <div class="<%= font.name %>">The quick brown fox jumps over the lazy dog (possibly)</div>
+  <% end %>
+</body>
+</html>
+
