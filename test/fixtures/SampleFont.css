@@ -1,1 +1,14 @@
-foo
+
+@font-face {
+  font-family: 'SampleFont';
+  src: url('./SampleFont.eot');
+  src: local('☺'),
+       url('./SampleFont.eot?iefix') format('eot'), 
+       url('./SampleFont.woff') format('woff'), 
+       url('./SampleFont.ttf') format('truetype'), 
+       url('./SampleFont.otf') format('opentype'), 
+       url('./SampleFont.svg#webfont') format('svg'), 
+       local('☺');
+  font-weight: normal;
+  font-style: normal;
+}

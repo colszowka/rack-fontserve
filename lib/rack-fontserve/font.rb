@@ -26,7 +26,23 @@ class Rack::Fontserve::Font
   
   def format_path(format)
     raise Rack::Fontserve::InvalidFormatError unless formats.include?(format)
-    File.join(path, "#{name}.#{format}")
+    file_path "#{name}.#{format}"
+  end
+  
+  def custom_css?
+    File.exist? file_path("#{name}.css")
+  end
+  
+  def custom_css
+    File.read file_path("#{name}.css") if custom_css?
+  end
+  
+  def license?
+    File.exist? file_path('LICENSE')
+  end
+  
+  def license
+    File.read file_path('LICENSE') if license?
   end
   
   private
@@ -35,4 +51,7 @@ class Rack::Fontserve::Font
     formats.count > 0
   end
   
+  def file_path(filename)
+    File.join(path, filename)
+  end
 end

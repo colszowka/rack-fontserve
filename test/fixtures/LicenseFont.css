@@ -1,0 +1,14 @@
+/* A super secret license */
+@font-face {
+  font-family: 'LicenseFont';
+  src: url('./LicenseFont.eot');
+  src: local('☺'),
+       url('./LicenseFont.eot?iefix') format('eot'), 
+       
+       url('./LicenseFont.ttf') format('truetype'), 
+       
+       
+       local('☺');
+  font-weight: normal;
+  font-style: normal;
+}

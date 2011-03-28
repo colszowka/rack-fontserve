@@ -1,12 +1,13 @@
+<% if @font.license? %>/* <%= @font.license %> */<% end %>
 @font-face {
   font-family: '<%= @font.name %>';
-  <% if format?('eot') %>src: url('<%= url("#{@font.name}.eot") %>');<% end %>
+  <% if format?('eot') %>src: url('<%= "./#{@font.name}.eot" %>');<% end %>
   src: local('☺'),
-       <% if format?('eot') %>url('<%= url("#{@font.name}.eot?iefix") %>') format('eot'), <% end %>
-       <% if format?('woff') %>url('<%= url("#{@font.name}.woff") %>') format('woff'), <% end %>
-       <% if format?('ttf') %>url('<%= url("#{@font.name}.ttf") %>') format('truetype'), <% end %>
-       <% if format?('otf') %>url('<%= url("#{@font.name}.otf") %>') format('opentype'), <% end %>
-       <% if format?('svg') %>url('<%= url("#{@font.name}.svg#webfont") %>') format('svg'), <% end %>
+       <% if format?('eot') %>url('<%= "./#{@font.name}.eot?iefix" %>') format('eot'), <% end %>
+       <% if format?('woff') %>url('<%= "./#{@font.name}.woff" %>') format('woff'), <% end %>
+       <% if format?('ttf') %>url('<%= "./#{@font.name}.ttf" %>') format('truetype'), <% end %>
+       <% if format?('otf') %>url('<%= "./#{@font.name}.otf" %>') format('opentype'), <% end %>
+       <% if format?('svg') %>url('<%= "./#{@font.name}.svg#webfont" %>') format('svg'), <% end %>
        local('☺');
   font-weight: normal;
   font-style: normal;

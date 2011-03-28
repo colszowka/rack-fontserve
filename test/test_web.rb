@@ -11,7 +11,21 @@ class WebTest < Test::Unit::TestCase
     should_respond_with 200
     should_set_header 'Content-Type', 'text/css;charset=utf-8'
     should_set_caching
-    #should_have_rendered_css 'SampleFont' # TODO!
+    should_have_rendered_css 'SampleFont'
+  end
+  
+  get '/CustomCSS.css' do
+    should_respond_with 200
+    should_set_header 'Content-Type', 'text/css;charset=utf-8'
+    should_set_caching
+    should_have_rendered_css 'CustomCSS'
+  end
+  
+  get '/LicenseFont.css' do
+    should_respond_with 200
+    should_set_header 'Content-Type', 'text/css;charset=utf-8'
+    should_set_caching
+    should_have_rendered_css 'LicenseFont'
   end
 
   %w(eot otf svg ttf woff).each do |format|

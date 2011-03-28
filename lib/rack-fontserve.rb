@@ -24,6 +24,11 @@ module Rack
     error(InvalidFormatError) { not_found }
     
     helpers do
+      def prepare_headers(format)
+        set_content_type(format)
+        set_cache
+      end
+      
       def set_content_type(format)
         headers['Content-Type'] = CONTENT_TYPES[format.to_s]
       end
@@ -45,16 +50,14 @@ module Rack
     
     get '/:font_name.css' do
       @font = Font.new(params[:font_name])
-      set_content_type :css
-      set_cache
-      erb :stylesheet
+      prepare_headers :css
+      @font.custom_css? ? @font.custom_css : erb(:stylesheet)
     end
     
     get '/:font_name.:format' do
       @font = Font.new(params[:font_name])
       @data = open(@font.format_path(params[:format]))
-      set_content_type(params[:format])
-      set_cache
+      prepare_headers params[:format]
       @data.read
     end
   end

@@ -85,8 +85,18 @@ class Test::Unit::TestCase
   
   def self.should_have_rendered_css(filename)
     should "have rendered the body as expected in fixtures/#{filename}.css" do
-      puts last_response.body
-      assert_equal File.read(File.join(File.dirname(__FILE__), 'fixtures', "#{filename}.css")), last_response.body
+      expected_css = File.read(File.join(File.dirname(__FILE__), 'fixtures', "#{filename}.css"))
+      
+      unless expected_css == last_response.body
+        puts last_response.body
+        begin
+          File.open("tmp.css", "w+") { |f| f.print last_response.body }
+          diff = `diff #{File.join(File.dirname(__FILE__), 'fixtures', "#{filename}.css")} tmp.css`
+          assert false, "Diff: #{diff}"
+        ensure
+          File.unlink('tmp.css')
+        end
+      end
     end
   end
 end
