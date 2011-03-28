@@ -30,7 +30,9 @@ setting the fonts path and mounting the app in your routes.rb file:
 
     mount Rack::Fontserve, :at => "/fonts" 
     
-You can see a demo of all fonts in the fonts_path at /demo
+You can see a demo of all fonts in the fonts_path at /demo.
+
+The font name is the name of the font's directory, so in the above example, the font would be called 'iconic_stroke'.
 
 == Custom font CSS
 
