@@ -55,4 +55,9 @@ class WebTest < Test::Unit::TestCase
       should_not_set_caching
     end
   end
+  
+  get '/demo' do
+    should_respond_with 200
+    should_set_header 'Content-Type', 'text/html;charset=utf-8'
+  end
 end
