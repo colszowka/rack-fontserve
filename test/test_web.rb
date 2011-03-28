@@ -2,7 +2,7 @@ require 'helper'
 
 class WebTest < Test::Unit::TestCase
   
-  get '/' do
+  get '/foo' do
     should_respond_with 404
     should("render an empty string") { assert_equal '', last_response.body }
   end
@@ -56,8 +56,23 @@ class WebTest < Test::Unit::TestCase
     end
   end
   
-  get '/demo' do
+  get '/' do
     should_respond_with 200
     should_set_header 'Content-Type', 'text/html;charset=utf-8'
+  end
+  
+  context "when demo is deactivated" do
+    setup do
+      Rack::Fontserve.set :demo, false
+    end
+    
+    get '/' do
+      should_respond_with 404
+      should_not_set_caching
+    end
+    
+    teardown do
+      Rack::Fontserve.set :demo, true
+    end
   end
 end
