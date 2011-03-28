@@ -2,7 +2,7 @@
 <head>
   <title>rack-fontserve demo</title>
 <% Font.all.each do |font| %>
-  <link rel="stylesheet" src="/<%= font.name %>.css?nocache=<%= rand(500000000) * rand(5000)/(rand(2000)+3)+5 %>"/>  
+  <link rel="stylesheet" href="/<%= font.name %>.css?nocache=<%= rand(500000000) * rand(5000)/(rand(2000)+3)+5 %>"/>  
 <% end %>
   <style type="text/css">
     body { 
