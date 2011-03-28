@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'rack-fontserve/version'
 
 module Rack
   class Fontserve < Sinatra::Base

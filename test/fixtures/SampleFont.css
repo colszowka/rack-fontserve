@@ -1,6 +1,6 @@
 
 @font-face {
-  font-family: 'SampleFont';
+  font-family: 'SampleFont', Helvetica, Arial, sans-serif;
   src: url('./SampleFont.eot');
   src: local('☺'),
        url('./SampleFont.eot?iefix') format('eot'), 
