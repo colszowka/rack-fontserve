@@ -1,6 +1,6 @@
 <% if @font.license? %>/* LICENSE: <%= @font.license %> */<% end %>
 @font-face {
-  font-family: '<%= @font.name %>', Helvetica, Arial, sans-serif;
+  font-family: '<%= @font.name %>';
   <% if format?('eot') %>src: url('<%= "./#{@font.name}.eot" %>');<% end %>
   src: local('☺'),
        <% if format?('eot') %>url('<%= "./#{@font.name}.eot?iefix" %>') format('eot'), <% end %>
