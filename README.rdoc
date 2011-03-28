@@ -1,0 +1,53 @@
+= Rack::Fontserve
+
+A simple Sinatra-based font hosting rack application that utilizes HTTP caching and Allow-Access-Control-Origin properly
+and generates the corresponding @font-face-CSS file on the fly.
+
+== Running standalone
+
+Create a Gemfile:
+
+  source :rubygems
+  gem 'rack-fontserve'
+  
+Create a config.ru:
+
+  require 'bundler/setup'
+  require 'rack-fontserve'
+  Rack::Fontserve.set :fonts_path, './fonts'
+  run Rack::Fontserve
+  
+Create a directory 'fonts', place your fonts inside there in subfolders, where each font format file has the same name
+as the directory:
+
+  fonts/iconic_stroke/
+    + iconic_stroke.eot
+    + iconic_stroke.ttf
+    + iconic_stroke.svg
+    
+That's it! Run with `rackup`, push to heroku, or mount it in an existing Rails 3 app by adding rack-fontserve to your gemfile, 
+setting the fonts path and mounting the app in your routes.rb file:
+
+    mount Rack::Fontserve, :at => "/fonts" 
+    
+You can see a demo of all fonts in the fonts_path at /demo
+    
+== TODO
+
+* Improve the CSS syntax (kill unneccessary blank lines)
+* Make the scope selector for svg fonts configurable
+* Add an "all.css" action that aggregates all fonts into one file
+  
+== Note on Patches/Pull Requests
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Copyright
+
+Copyright (c) 2011 Christoph Olszowka. See LICENSE for details.
