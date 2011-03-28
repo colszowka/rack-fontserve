@@ -6,13 +6,28 @@
 <% end %>
   <style type="text/css">
     body { 
-      text-align: center; 
+      text-align: center;
+      padding: 0; margin: 0; 
       font-size: 180%; 
       background: #ddd;
-      padding-top: 35px;
       font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
     }
-    h1,h2,h3 {
+    h1 { 
+      background-color: #222526; 
+      padding: 40px 20px;
+      margin: 0;
+      color: #7F203B;
+      font-size: 72px;
+      text-shadow: #D94F00 2px 2px 0px, #F28D00 4px 4px 0px, #FFBB6E 6px 6px 0px;
+      border-bottom: 4px solid black;
+    }
+    
+    footer, footer a {
+      color: #777;
+      font-size: 13px;
+    }
+    
+    h2 {
       text-shadow: white 1px 1px 1px;
     }
     
@@ -30,6 +45,9 @@
     <p>The quick brown fox jumps over the lazy dog (possibly)</p>
   </div>
   <% end %>
+  <footer>
+    <a href="https://github.com/colszowka/rack-fontserve">rack-fontserve</a> v<%= FONTSERVE_VERSION %>
+  </footer>
 </body>
 </html>
 
