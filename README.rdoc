@@ -25,18 +25,18 @@ as the directory:
     + iconic_stroke.ttf
     + iconic_stroke.svg
     
-That's it! Run with `rackup`, push to heroku, or mount it in an existing Rails 3 app by adding rack-fontserve to your gemfile, 
+That's it! Run with +rackup+, push to heroku, or mount it in an existing Rails 3 app by adding rack-fontserve to your gemfile, 
 setting the fonts path and mounting the app in your routes.rb file:
 
     mount Rack::Fontserve, :at => "/fonts" 
     
-You can see a demo of all fonts in the fonts_path at the root page (/). To deactivate demo mode, use `Rack::Fontserve.set :demo, false`.
+You can see a demo of all fonts in the fonts_path at the root page (/). To deactivate demo mode, use +Rack::Fontserve.set :demo, false+.
 
 The font name is the name of the font's directory, so in the above example, the font would be called 'iconic_stroke'.
 
 == Custom font CSS
 
-When a `font_name.css` file is found in the subdirectory, this file will be rendered instead of the auto-generated css. If you
+When a +font_name.css+ file is found in the subdirectory, this file will be rendered instead of the auto-generated css. If you
 want to tweak your css settings, copy and paste the auto-generated css into such a file and customize it to your liking!
 
 == Incorporate font licenses into CSS
