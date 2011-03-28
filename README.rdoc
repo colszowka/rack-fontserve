@@ -50,6 +50,7 @@ the license added as you want it.
 
 * Improve the CSS syntax (kill unneccessary blank lines)
 * Make the scope selector for svg fonts configurable
+* Make the fall-back fonts configurable
 * Add an "all.css" action that aggregates all fonts into one file
   
 == Note on Patches/Pull Requests
