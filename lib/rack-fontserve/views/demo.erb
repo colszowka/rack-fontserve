@@ -17,16 +17,18 @@
     }
     
     <% Font.all.each do |font| %>
-      .<%= font.name %> { font-family: '<%= font.name %>', Helvetica, Arial, sans-serif; }
+    .<%= font.name %> { font-family: '<%= font.name %>', Helvetica, Arial, sans-serif; }
     <% end %>
-    
   </style>
 </head>
+
 <body>
   <h1>rack-fontserve</h1>
   <% Font.all.each do |font| %>
-  <h2 class="<%= font.name %>"><%= font.name %></h2>
-  <div class="<%= font.name %>">The quick brown fox jumps over the lazy dog (possibly)</div>
+  <div class="<%= font.name %>">
+    <h2><%= font.name %></h2>
+    <p>The quick brown fox jumps over the lazy dog (possibly)</p>
+  </div>
   <% end %>
 </body>
 </html>
