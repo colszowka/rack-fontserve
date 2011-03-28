@@ -38,7 +38,7 @@ module Rack
                 'Expires' => (Time.now + Rack::Fontserve.max_age).httpdate,
                 'Access-Control-Allow-Origin' => '*'        
       end
-      
+
       def format?(f)
         @font.formats.include?(f.to_s)
       end
@@ -48,12 +48,14 @@ module Rack
       erb :demo
     end
     
+    # Render the generated or custom css for given font with caching
     get '/:font_name.css' do
       @font = Font.new(params[:font_name])
       prepare_headers :css
       @font.custom_css? ? @font.custom_css : erb(:stylesheet)
     end
     
+    # Render the font file for given font and format with caching
     get '/:font_name.:format' do
       @font = Font.new(params[:font_name])
       @data = open(@font.format_path(params[:format]))
