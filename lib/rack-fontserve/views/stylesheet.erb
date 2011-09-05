@@ -1,4 +1,5 @@
 <% if @font.license? %>/* LICENSE: <%= @font.license %> */<% end %>
+
 @font-face {
   font-family: '<%= @font.name %>';
   <% if format?('eot') %>src: url('<%= "./#{@font.name}.eot" %>');<% end %>
